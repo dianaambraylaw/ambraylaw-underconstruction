@@ -1,9 +1,12 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ambray Law & Advisory</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@200;250;300;350&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
 
 <style>
-/* Brand tokens — identical to index-v2.html */
 :root {
   --cr:    #7b0e17;
   --cr-d:  #5a0a12;
@@ -17,7 +20,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
+html {
   height: 100%;
 }
 
@@ -33,15 +36,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 60px 40px;
+  padding: 60px 40px 80px;
   position: relative;
 }
 
 ::selection { background: var(--cr); color: #fff; }
 
-/* Gold gradient bar across top — same as hero-top-bar */
 body::before {
   content: '';
   position: fixed;
@@ -51,26 +52,6 @@ body::before {
   z-index: 10;
 }
 
-/* Corner ornaments — subtle, law-firm gravity */
-.corner-tl,
-.corner-br {
-  position: fixed;
-  width: 44px; height: 44px;
-  pointer-events: none;
-  z-index: 0;
-}
-.corner-tl {
-  top: 24px; left: 24px;
-  border-top: 1px solid rgba(201,168,76,0.35);
-  border-left: 1px solid rgba(201,168,76,0.35);
-}
-.corner-br {
-  bottom: 24px; right: 24px;
-  border-bottom: 1px solid rgba(201,168,76,0.35);
-  border-right: 1px solid rgba(201,168,76,0.35);
-}
-
-/* Main wrapper */
 .wrap {
   position: relative;
   z-index: 1;
@@ -79,12 +60,12 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 }
 
-/* Logo — same sizing pattern as hero-logo */
 .hero-logo {
   width: min(480px, 82vw);
-  margin: 0 auto 52px;
+  margin: 0 auto 48px;
   display: block;
   animation: breathe 4s ease-in-out 1;
 }
@@ -98,7 +79,6 @@ body::before {
   .hero-logo { animation: none; }
 }
 
-/* Section tag — exact match */
 .sec-tag {
   font-family: 'Montserrat', sans-serif;
   font-size: 8.5px;
@@ -120,10 +100,9 @@ body::before {
   opacity: 0.5;
 }
 
-/* Headline — Cinzel like sec-title */
 .sec-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(20px, 3vw, 30px);
   font-weight: 600;
   color: var(--cr);
   letter-spacing: 0.07em;
@@ -132,29 +111,26 @@ body::before {
   text-wrap: balance;
 }
 
-/* Gold rule */
 .gold-line {
   width: 40px; height: 2px;
   background: var(--gf);
   opacity: 0.7;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-/* Body copy */
 .body-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
+  font-size: 18px;
   color: var(--body);
-  line-height: 2;
+  line-height: 1.9;
   margin-bottom: 20px;
   max-width: 480px;
 }
 
-/* Contact detail block — matches cd-group */
 .cd-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   background-color: rgba(201,168,76,0.12);
   border: 0.5px solid rgba(201,168,76,0.45);
   border-top: 2px solid var(--gf);
@@ -185,12 +161,11 @@ body::before {
 .cd-val a:hover { color: var(--cr); }
 .cd-sep { height: 0.5px; background: rgba(201,168,76,0.2); }
 
-/* Footer strip */
 .footer-strip {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--cr);
-  padding: 14px 32px;
+  padding: 12px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -213,7 +188,6 @@ body::before {
   color: rgba(245,233,192,0.65);
 }
 
-/* Reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -223,7 +197,6 @@ body::before {
 .d2 { animation-delay: 0.3s; }
 .d3 { animation-delay: 0.45s; }
 .d4 { animation-delay: 0.6s; }
-.d5 { animation-delay: 0.75s; }
 
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
@@ -234,15 +207,13 @@ body::before {
 }
 
 @media (max-width: 600px) {
-  .footer-strip { padding: 12px 20px; }
+  body { padding: 48px 24px 72px; }
+  .footer-strip { padding: 10px 20px; }
   .footer-location { display: none; }
-  .cd-group { padding: 24px 22px; }
-  .corner-tl, .corner-br { width: 28px; height: 28px; top: 14px; left: 14px; bottom: 14px; right: 14px; }
+  .cd-group { padding: 22px 20px; }
+  .hero-logo { margin-bottom: 36px; }
 }
 </style>
-
-<div class="corner-tl"></div>
-<div class="corner-br"></div>
 
 <div class="wrap">
 
@@ -284,5 +255,3 @@ body::before {
   <div class="footer-copy">&copy; 2026 Ambray Law &amp; Advisory. All Rights Reserved.</div>
   <div class="footer-location">Alabang, Muntinlupa City, Philippines</div>
 </div>
-
-</body></html>
