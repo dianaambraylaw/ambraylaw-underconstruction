@@ -19,12 +19,15 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { height: 100%; }
+html {
+  min-height: 100%;
+}
 
 body {
   font-family: 'Cormorant Garamond', serif;
   background-color: var(--cream);
   background-image: url('cream-texture.png');
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--body);
