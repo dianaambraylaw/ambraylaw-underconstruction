@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ambray Law & Advisory</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<title>Ambray Law &amp; Advisory</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap">
 
 <style>
 :root {
@@ -12,7 +12,6 @@
   --cr-d:  #5a0a12;
   --gf:    #c9a84c;
   --cream: #fdfaf5;
-  --ivory: #ffffff;
   --parch: #f7f1e3;
   --body:  #4a3f38;
   --muted: #7a6a60;
@@ -20,7 +19,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { height: 100%; }
+html, body { height: 100%; }
 
 body {
   font-family: 'Cormorant Garamond', serif;
@@ -30,210 +29,243 @@ body {
   background-size: cover;
   color: var(--body);
   -webkit-font-smoothing: antialiased;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 60px 40px 80px;
-  position: relative;
+  min-height: 100%;
 }
 
 ::selection { background: var(--cr); color: #fff; }
 
-body::before {
-  content: '';
+/* ── TOP GOLD BAR ── */
+.top-bar {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gf), transparent);
-  z-index: 10;
+  z-index: 20;
 }
 
-.wrap {
-  position: relative;
-  z-index: 1;
-  max-width: 640px;
-  width: 100%;
+/* ── MAIN ── */
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  justify-content: center;
+  padding: 80px 48px 100px;
+  text-align: center;
 }
 
+/* ── LOGO ── */
 .hero-logo {
-  width: min(480px, 82vw);
-  margin: 0 auto 48px;
-  display: center;
-  animation: draw-in 4s ease-in-out 1;
+  width: min(680px, 88vw);
+  display: block;
+  margin: 0 auto 56px;
+  animation: draw-in 1.8s ease-out 1 both;
 }
 
 @keyframes draw-in {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.045); }
+  0%   { opacity: 0; filter: blur(10px); transform: scale(1.03); }
+  100% { opacity: 1; filter: blur(0);    transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-logo { animation: none; }
 }
 
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.4s forwards;
+}
+.divider-line {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.55));
+}
+.divider-line.right {
+  background: linear-gradient(90deg, rgba(201,168,76,0.55), transparent);
+}
+.divider-diamond {
+  width: 6px; height: 6px;
+  background: var(--gf);
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+/* ── TAG ── */
 .sec-tag {
   font-family: 'Montserrat', sans-serif;
   font-size: 8.5px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--cr);
-  margin-bottom: 12px;
   font-weight: 600;
-  opacity: 0.65;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.55s forwards;
+  margin-bottom: 16px;
 }
 
-.sec-title {
+/* ── HEADLINE ── */
+.headline {
   font-family: 'Cinzel', serif;
-  font-size: clamp(20px, 3vw, 30px);
-  font-weight: 600;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 400;
   color: var(--cr);
-  letter-spacing: 0.07em;
-  line-height: 1.3;
-  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  margin-bottom: 20px;
   text-wrap: balance;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.7s forwards;
 }
 
-.gold-line {
-  width: 40px; height: 2px;
-  background: var(--gf);
-  opacity: 0.7;
-  margin-bottom: 24px;
-}
-
+/* ── BODY ── */
 .body-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  color: var(--body);
+  font-size: clamp(16px, 1.5vw, 19px);
+  color: var(--muted);
   line-height: 1.9;
-  margin-bottom: 20px;
-  max-width: 560px;
+  max-width: 480px;
+  margin: 0 auto 40px;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.85s forwards;
 }
 
+/* ── CONTACT BOX ── */
 .cd-group {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background-color: rgba(201,168,76,0.12);
-  border: 0.5px solid rgba(201,168,76,0.45);
+  gap: 16px;
+  background-color: rgba(201,168,76,0.08);
+  border: 0.5px solid rgba(201,168,76,0.4);
   border-top: 2px solid var(--gf);
-  padding: 28px 36px;
+  padding: 32px 44px;
   width: 100%;
-  max-width: 420px;
-  margin-top: 8px;
+  max-width: 460px;
   text-align: left;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 1s forwards;
 }
 
 .cd-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.22em;
+  font-size: 7.5px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--cr);
   font-weight: 600;
-  opacity: 0.6;
-  margin-bottom: 2px;
+  opacity: 0.55;
+  margin-bottom: 3px;
 }
 .cd-val {
   font-family: 'Cormorant Garamond', serif;
   font-size: 17px;
   color: var(--body);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .cd-val a { color: inherit; text-decoration: none; transition: color 0.2s; }
 .cd-val a:hover { color: var(--cr); }
-.cd-sep { height: 0.5px; background: rgba(201,168,76,0.2); }
+.cd-sep { height: 0.5px; background: rgba(201,168,76,0.18); }
 
-.footer-strip {
+/* ── FOOTER ── */
+footer {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--cr);
-  padding: 12px 32px;
+  padding: 11px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  border-top: 1px solid rgba(201,168,76,0.2);
-  z-index: 10;
+  border-top: 1px solid rgba(201,168,76,0.18);
+  z-index: 20;
 }
 .footer-copy {
   font-family: 'Montserrat', sans-serif;
-  font-size: 7.5px;
-  letter-spacing: 0.1em;
-  color: rgba(212,175,55,0.7);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  color: rgba(212,175,55,0.65);
   text-transform: uppercase;
 }
 .footer-location {
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
   font-style: italic;
-  color: rgba(245,233,192,0.65);
+  color: rgba(245,233,192,0.6);
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: fadeUp 0.9s ease forwards;
-}
-.d1 { animation-delay: 0.15s; }
-.d2 { animation-delay: 0.3s; }
-.d3 { animation-delay: 0.45s; }
-.d4 { animation-delay: 0.6s; }
-
+/* ── ANIMATION ── */
 @keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { animation: none; opacity: 1; transform: none; }
+  .divider, .sec-tag, .headline, .body-text, .cd-group {
+    animation: none; opacity: 1; transform: none;
+  }
 }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  body { padding: 48px 24px 72px; }
-  .footer-strip { padding: 10px 20px; }
+  main { padding: 72px 24px 88px; }
+  .hero-logo { margin-bottom: 40px; }
+  .cd-group { padding: 24px 22px; }
+  footer { padding: 10px 20px; }
   .footer-location { display: none; }
-  .cd-group { padding: 22px 20px; }
-  .hero-logo { margin-bottom: 36px; }
+  .divider-line { width: 40px; }
 }
 </style>
+</head>
+<body>
 
-<div class="wrap">
+<div class="top-bar"></div>
+
+<main>
 
   <img
-    class="hero-logo reveal"
+    class="hero-logo"
     src="ALA Logo w CPA - Deep Crimson and Gold Font.svg"
     alt="Ambray Law &amp; Advisory"
   >
 
-  <div class="sec-tag reveal d1">Coming Soon</div>
-  <h1 class="sec-title reveal d2">OUR WEBSITE IS CURRENTLY UNDER CONSTRUCTION</h1>
-  <div class="gold-line reveal d2"></div>
-  <p class="body-text reveal d3" style="margin-bottom:20px;">In the meantime, we remain available for all inquiries.</p>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line right"></div>
+  </div>
 
-  <div class="cd-group reveal d4">
+  <div class="sec-tag">Coming Soon</div>
+
+  <h1 class="headline">Our Website Is Currently Under Construction</h1>
+
+  <p class="body-text">In the meantime, we remain available for all inquiries.</p>
+
+  <div class="cd-group">
     <div>
       <div class="cd-label">Email</div>
-      <div class="cd-val"><a href="mailto:ambray@ambraylaw.com?subject=General%20Inquiry%20%E2%80%94%20Ambray%20Law%20%26%20Advisory">ambray@ambraylaw.com</a></div>
+      <div class="cd-val"><a href="mailto:ambray@ambraylaw.com?subject=General%20Inquiry">ambray@ambraylaw.com</a></div>
     </div>
     <div class="cd-sep"></div>
     <div>
       <div class="cd-label">Office</div>
-      <div class="cd-val">17th Floor, Tower 2, Insular Life Corporate Centre<br>Insular Drive, Alabang, Muntinlupa<br>Philippines</div>
+      <div class="cd-val">17th Floor, Tower 2, Insular Life Corporate Centre<br>Insular Drive, Alabang, Muntinlupa</div>
     </div>
   </div>
 
-</div>
+</main>
 
-<div class="footer-strip">
+<footer>
   <div class="footer-copy">&copy; 2026 Ambray Law &amp; Advisory. All Rights Reserved.</div>
   <div class="footer-location">Alabang, Muntinlupa City, Philippines</div>
-</div>
+</footer>
+
+</body>
+</html>
