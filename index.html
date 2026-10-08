@@ -78,26 +78,15 @@ main {
 
 /* ── DIVIDER ── */
 .divider {
-  display: flex;
-  align-items: center;
-  gap: 18px;
   margin-bottom: 36px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.4s forwards;
 }
 .divider-line {
-  width: 64px;
+  width: min(280px, 55vw);
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.55));
-}
-.divider-line.right {
-  background: linear-gradient(90deg, rgba(201,168,76,0.55), transparent);
-}
-.divider-diamond {
-  width: 6px; height: 6px;
-  background: var(--gf);
-  transform: rotate(45deg);
-  opacity: 0.75;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.55), transparent);
+  margin: 0 auto;
 }
 
 /* ── TAG ── */
@@ -223,7 +212,7 @@ footer {
   .cd-group { padding: 24px 22px; }
   footer { padding: 10px 20px; }
   .footer-location { display: none; }
-  .divider-line { width: 40px; }
+  .divider-line { width: min(200px, 50vw); }
 }
 </style>
 </head>
