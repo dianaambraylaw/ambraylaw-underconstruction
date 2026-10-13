@@ -102,9 +102,10 @@ main {
   background-image:
     linear-gradient(to bottom, transparent 60%, var(--parch) 100%),
     url('cream-texture.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-size: 100% 100%, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-attachment: scroll, fixed;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
